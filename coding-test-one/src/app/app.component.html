@@ -1,11 +1,29 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<div>
+    <h1>Simple Angular test</h1>
 
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="field">
+            <label for="">Title</label>
+            <select>
+                <option> select an option</option>
+                <option *ngFor="let title of titles" [value]="title.name" [selected]="title.isDefault? 'selected':''"> {{title.name}}</option>
+            </select>
+        </div>
+        <div class="field">
+            <label>First Name</label>
+            <input type="text" placeholder="first name">
+        </div>
 
-<app-simple-form></app-simple-form>
+        <div class="field">
+            <label>Second Name</label>
+            <input type="text" placeholder="Second name">
+        </div>
+        <div class="">
+            <input type="checkbox" name="" id=""/>
+            <label for="">I accept the terms & conditions</label>
+        </div>
+        <div class="button-panel">
+            <button>Submit</button>
+        </div>
+    </form>
+</div> 
