@@ -4,26 +4,29 @@
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="field">
             <label for="">Title</label>
-            <select>
+            <select formControlName="title">
                 <option> select an option</option>
-                <option *ngFor="let title of titles" [value]="title.name" [selected]="title.isDefault? 'selected':''"> {{title.name}}</option>
+                <option *ngFor="let title of titles" [value]="title.name" [selected]="(title.isDefault == true) ?'selected':''"> {{title.name}}</option>
             </select>
         </div>
         <div class="field">
             <label>First Name</label>
-            <input type="text" placeholder="first name">
+            <input formControlName="firstName" type="text" placeholder="first name">
         </div>
 
         <div class="field">
             <label>Second Name</label>
-            <input type="text" placeholder="Second name">
+            <input formControlName="secondName" type="text" placeholder="Second name">
+        </div>
+        <div class="error" *ngIf="form.touched && form.status == 'INVALID'">
+            *campo obligatorio
         </div>
         <div class="">
-            <input type="checkbox" name="" id=""/>
+            <input formControlName="termsAccepted" type="checkbox" name="" id=""/>
             <label for="">I accept the terms & conditions</label>
         </div>
         <div class="button-panel">
-            <button>Submit</button>
+            <button [disabled]="form.value.termsAccepted ? false:true">Submit</button>
         </div>
     </form>
 </div> 
